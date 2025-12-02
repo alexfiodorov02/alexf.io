@@ -13,7 +13,7 @@ interface SocialLink {
 
 const authorData = {
   name: 'Alexander Fiodorov-Miller',
-  website: 'https://alexf.pro/',
+  website: 'https://alexf.io/',
   socialLinks: [
     { type: 'linkedin', url: 'https://linkedin.com/in/alexfiodorov02' },
     { type: 'github', url: 'https://github.com/alexfiodorov02' },

@@ -11,12 +11,12 @@ export const metadata: Metadata = {
     'Alexander Fiodorov-Miller, software engineer, full stack web developer, React TypeScript developer, inclusive tech, CS education startup, UX accessibility, web apps portfolio, JavaScript developer, GitHub projects',
   robots: 'index, follow',
   alternates: {
-    canonical: 'https://alexf.pro',
+    canonical: 'https://alexf.io',
   },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://alexf.pro',
+    url: 'https://alexf.io',
     siteName: 'Alexander Fiodorov-Miller',
     title: 'Alexander Fiodorov-Miller',
     description:
@@ -57,8 +57,8 @@ export default function RootLayout({
             '@context': 'https://schema.org',
             '@type': 'Person',
             name: 'Alexander Fiodorov-Miller',
-            url: 'https://alexf.pro',
-            image: 'https://alexf.pro/assets/Alex2.webp',
+            url: 'https://alexf.io',
+            image: 'https://alexf.io/assets/Alex2.webp',
             sameAs: [
               'https://github.com/alexfiodorov02',
               'https://linkedin.com/in/alexfiodorov02',
