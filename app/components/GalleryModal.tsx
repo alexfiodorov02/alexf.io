@@ -4,9 +4,8 @@ interface GalleryModalProps {
   images: string[];
   open: boolean;
   index: number;
+  setIndex: React.Dispatch<React.SetStateAction<number>>;
   onClose: () => void;
-  onPrev: () => void;
-  onNext: () => void;
 }
 
 const GalleryModal: React.FC<GalleryModalProps> = ({ images, open, index, onClose, onPrev, onNext }) => {
@@ -38,9 +37,9 @@ const GalleryModal: React.FC<GalleryModalProps> = ({ images, open, index, onClos
             last.focus();
           }
         } else if (e.key === 'ArrowLeft') {
-          onPrev();
+          setIndex((i) => (i - 1 + images.length) % images.length);
         } else if (e.key === 'ArrowRight') {
-          onNext();
+          setIndex((i) => (i + 1) % images.length);
         }
       };
       document.addEventListener('keydown', handleKeyDown);
@@ -72,7 +71,7 @@ const GalleryModal: React.FC<GalleryModalProps> = ({ images, open, index, onClos
           &times;
         </button>
         <button
-          onClick={onPrev}
+          onClick={() => setIndex((i) => (i - 1 + images.length) % images.length)}
           className="gallery-modal-prev"
           aria-label="Previous image"
           ref={prevBtnRef}
@@ -87,7 +86,7 @@ const GalleryModal: React.FC<GalleryModalProps> = ({ images, open, index, onClos
           aria-live="polite"
         />
         <button
-          onClick={onNext}
+          onClick={() => setIndex((i) => (i + 1) % images.length)}
           className="gallery-modal-next"
           aria-label="Next image"
           ref={nextBtnRef}

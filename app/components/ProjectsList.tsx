@@ -59,13 +59,6 @@ const ProjectsList: React.FC = () => {
     setGalleryIndex(0);
   };
 
-  const nextImage = () => {
-    setGalleryIndex((i) => (i + 1) % galleryImages.length);
-  };
-
-  const prevImage = () => {
-    setGalleryIndex((i) => (i - 1 + galleryImages.length) % galleryImages.length);
-  };
 
   return (
   <section className="projects-list" aria-label="Projects">
@@ -102,9 +95,8 @@ const ProjectsList: React.FC = () => {
           images={galleryImages}
           open={galleryOpen}
           index={galleryIndex}
+          setIndex={setGalleryIndex}
           onClose={closeGallery}
-          onPrev={prevImage}
-          onNext={nextImage}
         />
       )}
   </section>
