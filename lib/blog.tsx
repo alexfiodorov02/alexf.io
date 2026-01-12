@@ -25,6 +25,15 @@ export async function getBlogPostBySlug(slug: string): Promise<BlogPost | undefi
   if (!fs.existsSync(fullPath)) return undefined;
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
+  const htmlContent = await Promise.resolve(marked(content));
+
+  return {
+    slug,
+    title: data.title || slugToTitle(slug),
+    date: data.date || '',
+    excerpt: data.excerpt || '',
+    content: htmlContent,
+  };
 }
 
 function slugToTitle(s: string) {
@@ -33,14 +42,5 @@ function slugToTitle(s: string) {
     .split(' ')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
     .join(' ');
-}
-
-  return {
-    slug,
-    title: data.title || slugToTitle(slug),
-    date: data.date || '',
-    excerpt: data.excerpt || '',
-    content,
-  };
 }
 

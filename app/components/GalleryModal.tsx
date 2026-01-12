@@ -8,7 +8,7 @@ interface GalleryModalProps {
   onClose: () => void;
 }
 
-const GalleryModal: React.FC<GalleryModalProps> = ({ images, open, index, onClose, onPrev, onNext }) => {
+const GalleryModal: React.FC<GalleryModalProps> = ({ images, open, index, setIndex, onClose }) => {
   const modalRef = useRef<HTMLDivElement>(null);
   const closeBtnRef = useRef<HTMLButtonElement>(null);
   const prevBtnRef = useRef<HTMLButtonElement>(null);
@@ -49,7 +49,7 @@ const GalleryModal: React.FC<GalleryModalProps> = ({ images, open, index, onClos
         lastActiveElement.current?.focus();
       };
     }
-  }, [open, onClose, onPrev, onNext]);
+  }, [open, onClose, setIndex, images.length]);
 
   if (!open || images.length === 0) return null;
 
